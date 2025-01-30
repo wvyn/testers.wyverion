@@ -20,12 +20,14 @@
             <h2>FORCE Blasters</h2>
             <p><b>Host: Wyvern</b></p>
             <p><b>Game:</b> <a class="documentationBoxReference" href="https://www.roblox.com/games/128911330702825/FORCE-Blasters">FORCE Blasters</a></p>
+            <hr>
             <img src="https://testers.wyverion.com/force/assets/ForceBlasters.png" alt="Force Blasters">
             <hr>
         </section>
         <section id="Schedule">
             <h1>Schedule</h1>
             <hr>
+            <div id="timestamp"></div>
             <hr>
         </section>
         <section id="Patch-Notes">
@@ -66,5 +68,49 @@
             <hr>
         </section>
     </main>
+    <script>
+        // Function to calculate the time difference
+        function updateTimestamp() {
+            const eventTime = new Date("January 29, 2025 15:00:00"); // Your scheduled time
+            const currentTime = new Date();
+            const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
+            const diffInMinutes = Math.floor(diffInSeconds / 60);
+            const diffInHours = Math.floor(diffInMinutes / 60);
+            const diffInDays = Math.floor(diffInHours / 24);
+
+            let relativeTime = "";
+
+            if (diffInSeconds < 60) {
+                relativeTime = diffInSeconds + " seconds ago";
+            } else if (diffInMinutes < 60) {
+                relativeTime = diffInMinutes + " minutes ago";
+            } else if (diffInHours < 24) {
+                relativeTime = diffInHours + " hours ago";
+            } else {
+                relativeTime = diffInDays + " days ago";
+            }
+
+            if (eventTime > currentTime) {
+                if (diffInSeconds < 60) {
+                    relativeTime = "In " + (60 - diffInSeconds) + " seconds";
+                } else if (diffInMinutes < 60) {
+                    relativeTime = "In " + (60 - diffInMinutes) + " minutes";
+                } else if (diffInHours < 24) {
+                    relativeTime = "In " + (24 - diffInHours) + " hours";
+                } else {
+                    relativeTime = "In " + (7 - diffInDays) + " days";
+                }
+            }
+
+            const timestampElement = document.getElementById("timestamp");
+            timestampElement.innerHTML = `[January 29, 2025, 3:00 PM] [${relativeTime}]`;
+        }
+
+        // Update the timestamp every second
+        setInterval(updateTimestamp, 1000);
+
+        // Initial call to set the timestamp
+        updateTimestamp();
+    </script>
 </body>
 </html>
