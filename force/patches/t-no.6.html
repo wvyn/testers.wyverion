@@ -27,7 +27,7 @@
         <section id="Schedule">
             <h1>Schedule</h1>
             <hr>
-            <p><span id="timestamp" class="timeStamp"></span></p>
+            <p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative" class="timeStamp"></span></p>
             <hr>
         </section>
         <section id="Patch-Notes">
@@ -70,8 +70,8 @@
     </main>
     <script>
         function updateTimestamp() {
-            const eventTime = new Date("January 29, 2025 15:00:00");
             const currentTime = new Date();
+            const eventTime = new Date("January 29, 2025 15:00:00");
             const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
             const diffInMinutes = Math.floor(diffInSeconds / 60);
             const diffInHours = Math.floor(diffInMinutes / 60);
@@ -101,8 +101,19 @@
                 }
             }
 
+            const formattedCurrentTime = currentTime.toLocaleString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true
+            });
+
             const timestampElement = document.getElementById("timestamp");
-            timestampElement.innerHTML = `[January 29, 2025, 3:00 PM] [${relativeTime}]`;
+            timestampElement.innerHTML = formattedCurrentTime;
+            const timestampRelativeElement = document.getElementById("timestamp-relative");
+            timestampRelativeElement.innerHTML = relativeTime;
         }
 
         setInterval(updateTimestamp, 1000);
