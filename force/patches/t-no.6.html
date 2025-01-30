@@ -27,7 +27,7 @@
         <section id="Schedule">
             <h1>Schedule</h1>
             <hr>
-            <p id="timestamp" class="timeStamp"></p>
+            <p><span id="timestamp" class="timeStamp"></span></p>
             <hr>
         </section>
         <section id="Patch-Notes">
@@ -69,9 +69,8 @@
         </section>
     </main>
     <script>
-        // Function to calculate the time difference
         function updateTimestamp() {
-            const eventTime = new Date("January 29, 2025 15:00:00"); // Your scheduled time
+            const eventTime = new Date("January 29, 2025 15:00:00");
             const currentTime = new Date();
             const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
             const diffInMinutes = Math.floor(diffInSeconds / 60);
@@ -106,10 +105,7 @@
             timestampElement.innerHTML = `[January 29, 2025, 3:00 PM] [${relativeTime}]`;
         }
 
-        // Update the timestamp every second
         setInterval(updateTimestamp, 1000);
-
-        // Initial call to set the timestamp
         updateTimestamp();
     </script>
 </body>
