@@ -70,7 +70,7 @@
     </main>
     <script>
         function updateTimestamp() {
-            const eventTime = new Date("January 29, 2025 15:00:00");
+            const eventTime = new Date("January 29, 2025 19:51:00");
             const formattedEventTime = eventTime.toLocaleString('en-US', {
                 month: 'long',
                 day: 'numeric',
@@ -81,7 +81,7 @@
             });
 
             const timestampElement = document.getElementById("timestamp");
-            timestampElement.innerHTML = `Event Time: ${formattedEventTime}`;
+            timestampElement.innerHTML = `${formattedEventTime}`;
 
             const currentTime = new Date();
             const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
