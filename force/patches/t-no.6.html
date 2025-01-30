@@ -70,13 +70,8 @@
     </main>
     <script>
         function updateTimestamp() {
-            const currentTime = new Date();
             const eventTime = new Date("January 29, 2025 15:00:00");
-
-            const estTimeString = eventTime.toLocaleString('en-US', { timeZone: 'America/New_York', hour12: true });
-            const utcTimeString = eventTime.toLocaleString('en-US', { timeZone: 'UTC', hour12: true });
-
-            const formattedCurrentTime = currentTime.toLocaleString('en-US', {
+            const formattedEventTime = eventTime.toLocaleString('en-US', {
                 month: 'long',
                 day: 'numeric',
                 year: 'numeric',
@@ -86,8 +81,9 @@
             });
 
             const timestampElement = document.getElementById("timestamp");
-            timestampElement.innerHTML = `EST Time: ${estTimeString} <br> UTC Time: ${utcTimeString}`;
+            timestampElement.innerHTML = `Event Time: ${formattedEventTime}`;
 
+            const currentTime = new Date();
             const diffInSeconds = Math.floor((currentTime - eventTime) / 1000);
             const diffInMinutes = Math.floor(diffInSeconds / 60);
             const diffInHours = Math.floor(diffInMinutes / 60);
