@@ -27,7 +27,8 @@
         <section id="Schedule">
             <h1>Schedule</h1>
             <hr>
-            <p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative" class="timeStamp"></span></p>
+            <!--<p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative" class="timeStamp"></span></p>-->
+            <p><span class="timeStamp">No Schedule</span></p>
             <hr>
         </section>
         <section id="Patch-Notes">
@@ -39,7 +40,7 @@
                 <hr>
                 <p class="methodParameters">- Added Force Backpack</p>
                 <hr>
-                <p class="methodParameters">- Gain more Credits from Dead Bodies (credits = damage * 3)</p>
+                <p class="methodParameters">- Gain more Credits (credits = damage * 3)</p>
                 <hr>
                 <p class="methodParameters">- Added Aiming Animations</p>
                 <hr>
@@ -80,7 +81,7 @@
             });
 
             const timestampElement = document.getElementById("timestamp");
-            timestampElement.innerHTML = `${formattedEventTime}`;
+            if (timestampElement) timestampElement.innerHTML = `${formattedEventTime}`;
 
             const currentTime = new Date();
             const diffInSeconds = Math.abs(Math.round((currentTime - eventTime) / 1000));
@@ -113,7 +114,7 @@
             }
 
             const timestampRelativeElement = document.getElementById("timestamp-relative");
-            timestampRelativeElement.innerHTML = relativeTime;
+            if (timestampRelativeElement) timestampRelativeElement.innerHTML = relativeTime;
         }
 
         setInterval(updateTimestamp, 1000);
