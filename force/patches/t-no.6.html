@@ -31,7 +31,8 @@
         <section id="Schedule">
             <h1>Schedule</h1>
             <hr>
-            <p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative" class="timeStamp"></span></p>
+            <p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative"
+                    class="timeStamp"></span></p>
             <!--<p><span class="timeStamp">No Schedule</span></p>-->
             <hr>
         </section>
@@ -100,7 +101,8 @@
             <img src="https://testers.wyverion.com/force/assets/GunShieldShowcase.png" alt="Gun Shield Showcase">
             <hr class="hrseperator">
             <p class="methodParameters">Two blasters where added the E-22 as suggested by h3ruv1mx and RSKF-94 as also
-                suggested by h3ruv1mx. E-22 is similar to the E-11, but slightly varying in firerate and damage. RSKF-94 is a
+                suggested by h3ruv1mx. E-22 is similar to the E-11, but slightly varying in firerate and damage. RSKF-94
+                is a
                 different blaster type (Revolver)</p>
             <img src="https://testers.wyverion.com/force/assets/E-22Showcase.png" alt="E-22 Showcase">
             <img src="https://testers.wyverion.com/force/assets/AddedRSKF.png" alt="RSKF-94 Showcase">
@@ -143,7 +145,57 @@
     </main>
 
     <script src="https://testers.wyverion.com/assets/patch.js"></script>
-    <script src="https://testers.wyverion.com/assets/timestamp.js"></script>
+    <script>
+        function updateTimestamp() {
+            const eventTime = new Date(1738530000000);
+            const formattedEventTime = eventTime.toLocaleString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true
+            });
+
+            const timestampElement = document.getElementById("timestamp");
+            if (timestampElement) timestampElement.innerHTML = `${formattedEventTime}`;
+
+            const currentTime = new Date();
+            const diffInSeconds = Math.abs(Math.round((currentTime - eventTime) / 1000));
+            const diffInMinutes = Math.abs(Math.round(diffInSeconds / 60));
+            const diffInHours = Math.abs(Math.round(diffInMinutes / 60));
+            const diffInDays = Math.abs(Math.round(diffInHours / 24));
+
+            let relativeTime = "";
+
+            if (diffInSeconds < 60) {
+                relativeTime = diffInSeconds + " seconds ago";
+            } else if (diffInMinutes < 60) {
+                relativeTime = diffInMinutes + " minutes ago";
+            } else if (diffInHours < 24) {
+                relativeTime = diffInHours + " hours ago";
+            } else {
+                relativeTime = diffInDays + " days ago";
+            }
+
+            if (eventTime > currentTime) {
+                if (diffInSeconds < 60) {
+                    relativeTime = "In " + diffInSeconds + " seconds";
+                } else if (diffInMinutes < 60) {
+                    relativeTime = "In " + diffInMinutes + " minutes";
+                } else if (diffInHours < 24) {
+                    relativeTime = "In " + diffInHours + " hours";
+                } else {
+                    relativeTime = "In " + diffInDays + " days";
+                }
+            }
+
+            const timestampRelativeElement = document.getElementById("timestamp-relative");
+            if (timestampRelativeElement) timestampRelativeElement.innerHTML = relativeTime;
+        }
+
+        setInterval(updateTimestamp, 1000);
+        updateTimestamp();</script>
 </body>
 
 </html>
