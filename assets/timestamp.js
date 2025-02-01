@@ -1,6 +1,6 @@
 
 function updateTimestamp() {
-    const eventTime = new Date(1738180800000);
+    const eventTime = new Date(1738530000000);
     const formattedEventTime = eventTime.toLocaleString('en-US', {
         month: 'long',
         day: 'numeric',
