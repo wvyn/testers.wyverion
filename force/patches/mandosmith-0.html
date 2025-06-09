@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mandalorian Smithing Update">
+    <meta property="og:description" content="Testing updates for Mandalorian Smithing including crafting, smithing, materials, and more.">
+    <meta property="og:url" content="testers.wyverion.com/force/patches/mandosmith-0.html">
+    <meta property="og:site_name" content="Wyverion Testers">
+    <title>Mandalorian Smithing Update</title>
+    <link rel="icon" href="https://testers.wyverion.com/force/assets/MandoSmithLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://testers.wyverion.com/force/patch.css">
+    <style>
+        /* Extra styles for pizzazz */
+        .highlighted {
+            color: #66b3ff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .card img {
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .fancy-title {
+            font-size: 2.5rem;
+            color: #ff6347;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 30px;
+        }
+
+        .callout {
+            background-color: rgba(0, 110, 219, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .callout h3 {
+            color: #00acff;
+        }
+
+        .callout p {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="Heading">
+            <h1><span class="classTitle"><code>Mandalorian Smithing Update</code></span></h1>
+            <hr>
+            <h2>Testing for Mandalorian Smithing</h2>
+            <p><b>Host:</b> Wyvern</p>
+            <p><b>Game:</b> <a class="documentationBoxReference" href="https://www.roblox.com/games/94454122729946/Mando-Smithing">Mandalorian Smithing</a></p>
+            <p><b>If you find any bugs, please report them to:</b> Wyvern (DM or via contact info)</p>
+            <hr>
+            <!-- Logo at the top -->
+            <img src="https://testers.wyverion.com/force/assets/MandoSmithLogo.png" alt="Mandalorian Smithing Logo" class="card" style="max-width: 100%; height: auto;">
+            <hr>
+        </section>
+
+        <section id="Thumbnail">
+            <!-- Thumbnail image added -->
+            <img src="https://testers.wyverion.com/force/assets/MandoSmithThumbnail.png" alt="Mandalorian Smithing Thumbnail" style="max-width: 100%; height: auto;">
+            <hr>
+        </section>
+
+        <section id="Schedule">
+            <h1 class="fancy-title">Schedule</h1>
+            <hr>
+            <p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative" class="timeStamp"></span></p>
+            <hr>
+        </section>
+
+        <section id="Crafting-System">
+            <h1 class="fancy-title">Mandalorian Smithing Crafting System</h1>
+            <hr>
+
+            <h2 class="highlighted">Creating a Fire</h2>
+            <p>Chop down trees to obtain wood. Feed it into a stove at your base. Adding more wood increases the temperature, shown on a visual display. Each piece of wood provides 273 K of heat.</p>
+
+            <h2 class="highlighted">Melting Points</h2>
+            <p>Each type of ore requires a specific temperature to be melted:</p>
+            <ul>
+                <li><b>Chanlon Ore:</b> 1000 K</li>
+                <li><b>Agrocite Ore:</b> 2273 K</li>
+                <li><b>Gold Ore:</b> 1273 K</li>
+                <li><b>Lignan Ore:</b> 4273 K</li>
+                <li><b>Quadrillium Ore:</b> 6273 K</li>
+                <li><b>Durasteel Ore:</b> 8273 K</li>
+                <li><b>Beskar Ore:</b> 11273 K</li>
+            </ul>
+
+            <h2 class="highlighted">Smithing Your Equipment with a Hammer</h2>
+            <p>Follow these steps to craft your items:</p>
+            <ol>
+                <li>Pick up raw ore using tongs (Hold ore and click tongs).</li>
+                <li>Heat up the raw ore by holding it over the fire.</li>
+                <li>Pick up the hammer and put down the tongs (Press E to swap on the table).</li>
+                <li>Hammer the raw ore on the table (Hold click to hammer).</li>
+                <li>Ore has a maximum size limit so it can’t be hammered down endlessly.</li>
+                <li>Cool off the raw ore with a cauldron to return a bar.</li>
+            </ol>
+
+            <h2 class="highlighted">Building Materials</h2>
+            <ul>
+                <li>Raw Ore</li>
+                <li>Ore (Bar State)</li>
+                <li>Cog</li>
+                <li>Gear</li>
+                <li>Bolt</li>
+            </ul>
+
+            <h2 class="highlighted">Recipes & Schematics</h2>
+            <p>Recipes and Schematics can be discovered or purchased in-game:</p>
+            <ul>
+                <li><b>Recipes:</b> Tell you how to make an object (e.g., Mandalorian Tactician Chestplate). Not required for crafting, but guide the crafting process.</li>
+                <li><b>Schematics:</b> Required to create specific components (e.g., Tactician Chestplate or Rear Chestplate).</li>
+            </ul>
+
+            <h2 class="highlighted">Material Value</h2>
+            <p>Material values determine how much raw material is needed to craft or manufacture an item. The values are as follows:</p>
+            <ul>
+                <li>Raw Ores: Material Value of 1</li>
+                <li>Bars: Material Value of 2</li>
+            </ul>
+
+            <h2 class="highlighted">Customization (Trims)</h2>
+            <p>Trims are cosmetic additions to armor or weapons. They don’t affect stats but can be customized:</p>
+            <ul>
+                <li>Trims are created via a trimming machine.</li>
+                <li>Raw ore or bars are required to craft trims, which follow Material Value rules.</li>
+            </ul>
+
+            <h2 class="highlighted">Material Mass Value</h2>
+            <p>The mass value of each ore is important for crafting alloys:</p>
+            <ul>
+                <li>Chanlon Ore: 1 u</li>
+                <li>Agrocite Ore: 10 u</li>
+                <li>Gold Ore: 50 u</li>
+                <li>Lignan Ore: 750 u</li>
+                <li>Quadrillium Ore: 10,000 u</li>
+                <li>Durasteel Ore: 1,000,000 u</li>
+                <li>Beskar Ore: 100,000,000 u</li>
+            </ul>
+
+            <h2 class="highlighted">Material Composition / Alloys</h2>
+            <p>Mix materials to create alloys, which provide buffs for your equipment:</p>
+            <ul>
+                <li>Example: Combining Beskar and Durasteel to create a Durasteel-Beskar alloy.</li>
+                <li>Alloy composition depends on the materials used and their melting points.</li>
+            </ul>
+            <hr>
+
+            <div class="callout">
+                <h3>Don't Forget to Report Bugs!</h3>
+                <p>If you encounter any bugs, make sure to report them to me (Wyvern) directly.</p>
+            </div>
+        </section>
+
+        <!-- Image Section -->
+        <section>
+            <h3 class="fancy-title">Visuals from Mandalorian Smithing</h3>
+            <hr>
+            <div class="card">
+                <h3>Mandalorian Smithing Action 1</h3>
+                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage1.png" alt="MandoSmith Image 1">
+            </div>
+            <div class="card">
+                <h3>Mandalorian Smithing Action 2</h3>
+                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage2.png" alt="MandoSmith Image 2">
+            </div>
+        </section>
+
+        <footer>
+            <p>Testers' Update Page - Mandalorian Smithing</p>
+        </footer>
+    </main>
+
+    <script>
+        function updateTimestamp() {
+            const timestampElement = document.getElementById("timestamp");
+            const relativeElement = document.getElementById("timestamp-relative");
+
+            const targetTimestamp = 1749495600; // The schedule time (timestamp in seconds)
+            const currentTimestamp = Math.floor(Date.now() / 1000); // Get current timestamp in seconds
+            const diffInSeconds = targetTimestamp - currentTimestamp;
+
+            if (diffInSeconds <= 0) {
+                timestampElement.innerHTML = "Event has started!";
+                relativeElement.innerHTML = "";
+            } else {
+                const diffInDays = Math.floor(diffInSeconds / (60 * 60 * 24));
+                timestampElement.innerHTML = `Event starts in ${diffInDays} days`;
+                relativeElement.innerHTML = `${diffInSeconds} seconds remaining`;
+            }
+        }
+        updateTimestamp();
+    </script>
+</body>
+
+</html>
