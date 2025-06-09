@@ -64,6 +64,15 @@
             color: #fff;
             font-size: 1.1rem;
         }
+
+        .timeStamp {
+            background-color: rgba(75, 75, 75, 0.301);
+            padding: 5px 5px;
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
@@ -88,10 +97,11 @@
             <hr>
         </section>
 
+        <!-- Schedule Section -->
         <section id="Schedule">
             <h1 class="fancy-title">Schedule</h1>
             <hr>
-            <p><span id="timestamp" class="timeStamp"></span>&nbsp;<span id="timestamp-relative" class="timeStamp"></span></p>
+            <p><span id="timestamp" class="timeStamp"></span>&nbsp;</p>
             <hr>
         </section>
 
@@ -101,6 +111,12 @@
 
             <h2 class="highlighted">Creating a Fire</h2>
             <p>Chop down trees to obtain wood. Feed it into a stove at your base. Adding more wood increases the temperature, shown on a visual display. Each piece of wood provides 273 K of heat.</p>
+
+            <!-- Image 1 added here -->
+            <div class="card">
+                <h3>Mandalorian Smithing Action 1</h3>
+                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage1.png" alt="MandoSmith Image 1">
+            </div>
 
             <h2 class="highlighted">Melting Points</h2>
             <p>Each type of ore requires a specific temperature to be melted:</p>
@@ -114,6 +130,12 @@
                 <li><b>Beskar Ore:</b> 11273 K</li>
             </ul>
 
+            <!-- Image 2 added here -->
+            <div class="card">
+                <h3>Mandalorian Smithing Action 2</h3>
+                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage2.png" alt="MandoSmith Image 2">
+            </div>
+
             <h2 class="highlighted">Smithing Your Equipment with a Hammer</h2>
             <p>Follow these steps to craft your items:</p>
             <ol>
@@ -124,6 +146,12 @@
                 <li>Ore has a maximum size limit so it can’t be hammered down endlessly.</li>
                 <li>Cool off the raw ore with a cauldron to return a bar.</li>
             </ol>
+
+            <!-- Image 3 added here -->
+            <div class="card">
+                <h3>Mandalorian Smithing Action 3</h3>
+                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage3.png" alt="MandoSmith Image 3">
+            </div>
 
             <h2 class="highlighted">Building Materials</h2>
             <ul>
@@ -141,58 +169,18 @@
                 <li><b>Schematics:</b> Required to create specific components (e.g., Tactician Chestplate or Rear Chestplate).</li>
             </ul>
 
+            <!-- Image 4 added here -->
+            <div class="card">
+                <h3>Mandalorian Smithing Action 4</h3>
+                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage4.png" alt="MandoSmith Image 4">
+            </div>
+
             <h2 class="highlighted">Material Value</h2>
             <p>Material values determine how much raw material is needed to craft or manufacture an item. The values are as follows:</p>
             <ul>
                 <li>Raw Ores: Material Value of 1</li>
                 <li>Bars: Material Value of 2</li>
             </ul>
-
-            <h2 class="highlighted">Customization (Trims)</h2>
-            <p>Trims are cosmetic additions to armor or weapons. They don’t affect stats but can be customized:</p>
-            <ul>
-                <li>Trims are created via a trimming machine.</li>
-                <li>Raw ore or bars are required to craft trims, which follow Material Value rules.</li>
-            </ul>
-
-            <h2 class="highlighted">Material Mass Value</h2>
-            <p>The mass value of each ore is important for crafting alloys:</p>
-            <ul>
-                <li>Chanlon Ore: 1 u</li>
-                <li>Agrocite Ore: 10 u</li>
-                <li>Gold Ore: 50 u</li>
-                <li>Lignan Ore: 750 u</li>
-                <li>Quadrillium Ore: 10,000 u</li>
-                <li>Durasteel Ore: 1,000,000 u</li>
-                <li>Beskar Ore: 100,000,000 u</li>
-            </ul>
-
-            <h2 class="highlighted">Material Composition / Alloys</h2>
-            <p>Mix materials to create alloys, which provide buffs for your equipment:</p>
-            <ul>
-                <li>Example: Combining Beskar and Durasteel to create a Durasteel-Beskar alloy.</li>
-                <li>Alloy composition depends on the materials used and their melting points.</li>
-            </ul>
-            <hr>
-
-            <div class="callout">
-                <h3>Don't Forget to Report Bugs!</h3>
-                <p>If you encounter any bugs, make sure to report them to me (Wyvern) directly.</p>
-            </div>
-        </section>
-
-        <!-- Image Section -->
-        <section>
-            <h3 class="fancy-title">Visuals from Mandalorian Smithing</h3>
-            <hr>
-            <div class="card">
-                <h3>Mandalorian Smithing Action 1</h3>
-                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage1.png" alt="MandoSmith Image 1">
-            </div>
-            <div class="card">
-                <h3>Mandalorian Smithing Action 2</h3>
-                <img src="https://testers.wyverion.com/force/assets/MandoSmithImage2.png" alt="MandoSmith Image 2">
-            </div>
         </section>
 
         <footer>
@@ -203,7 +191,6 @@
     <script>
         function updateTimestamp() {
             const timestampElement = document.getElementById("timestamp");
-            const relativeElement = document.getElementById("timestamp-relative");
 
             const targetTimestamp = 1749495600; // The schedule time (timestamp in seconds)
             const currentTimestamp = Math.floor(Date.now() / 1000); // Get current timestamp in seconds
@@ -214,8 +201,11 @@
                 relativeElement.innerHTML = "";
             } else {
                 const diffInDays = Math.floor(diffInSeconds / (60 * 60 * 24));
-                timestampElement.innerHTML = `Event starts in ${diffInDays} days`;
-                relativeElement.innerHTML = `${diffInSeconds} seconds remaining`;
+                const diffInHours = Math.floor((diffInSeconds % (60 * 60 * 24)) / (60 * 60));
+                const diffInMinutes = Math.floor((diffInSeconds % (60 * 60)) / 60);
+                const diffInRemainingSeconds = diffInSeconds % 60;
+
+                timestampElement.innerHTML = `Event starts in ${diffInDays} days, ${diffInHours} hours, ${diffInMinutes} minutes ${diffInRemainingSeconds} seconds remaining`;
             }
         }
         updateTimestamp();
